@@ -5,6 +5,11 @@
 <html>
 <head>
 <style type="text/css">
+.error {
+	color: red;
+	font-weight: bold;
+}
+
 label {
 	display: inline-block;
 	width: 200px;
@@ -40,14 +45,17 @@ button {
 		<form:form action="register" method="post" modelAttribute="user">
 			<form:label path="name">Full name:</form:label>
 			<form:input path="name" />
+			<form:errors path="name" cssClass="error" />
 			<br />
 
 			<form:label path="email">E-mail:</form:label>
 			<form:input path="email" />
+			<form:errors path="email" cssClass="error" />
 			<br />
 
 			<form:label path="password">Password:</form:label>
 			<form:password path="password" />
+			<form:errors path="password" cssClass="error" />
 			<br />
 
 			<form:label path="birthday">Birthday (yyyy-mm-dd):</form:label>
