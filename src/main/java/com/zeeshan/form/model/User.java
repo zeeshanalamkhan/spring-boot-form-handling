@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "User")
@@ -15,9 +17,13 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@NotEmpty(message = "Please enter your name.")
 	private String name;
+	@NotEmpty(message = "Please enter your email.")
 	private String email;
 	private String gender;
+	@NotEmpty(message = "Please enter your password.")
+	@Size(max = 15, min = 6, message = "Your password must between 6 and 15 characters")
 	private String password;
 	private String profession;
 	private String note;
